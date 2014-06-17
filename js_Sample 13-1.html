@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample 13-1 </title>
+    <style>
+	    .reveal * {display: none;} /*類別reveal的子元素不會顯示出來*/
+	    .reveal *.handle {display: block;}/*除非他類別是*/
+    </style>
+    <script>//在整份文件都載入錢什麼都不做
+    	window.onload = function(){
+	    	//找出所有類別是reveal的容器（container）元素
+	    	var elements = document.getElementsByClassName("reveal");
+	    	for (var i=0; i< elements.length; i++){
+		    	var elt = elements[i];
+		    	//找出容器中類別是handle的元素
+		    	var title = elt.getElementsByClassName("handle")[0];
+		    	//當元素被點擊時，揭露剩餘的內容
+		    	addRevealHandler(title, elt);
+	    	}
+	    	function addRevealHandler(title,elt){
+		    	title.onclick = function(){
+			    	if(elt.className == "reveal") elt.className ="revealed";
+			    	else if (elt.className == "revealed") elt.className = "reveal";
+		    	}
+	    	}
+    	}
+    </script>
+  </head>
+  <body>
+	<div class="reveal">
+		<h1 class = "handle">hi! Click here to reveal hidden text</h1>
+		<p> This paragraph is hidden!</p>
+	</div>
+	<div class = "reveal">
+		<h1 class = "handle"> ahhahahahahahahah </h1>
+		<P>wjeirjwioejrowijeoirjwiejorjwo</P>
+	</div>
+  </body>
+</html>
